@@ -1,11 +1,11 @@
-package com.example.eventvalidation
+package com.example.eventvalidation2
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
-import com.example.eventvalidation.databinding.ActivityMainBinding
+import com.example.eventvalidation2.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 1. Sự kiện gõ phím hiện Toast
+        // 1. Gõ phím hiện Toast[cite: 42]
         binding.etName.doAfterTextChanged { text ->
             if (!text.isNullOrEmpty()) {
                 Toast.makeText(this, "Họ tên: $text", Toast.LENGTH_SHORT).show()
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // 2. Sự kiện RadioGroup Giới tính hiện Toast[cite: 42]
+        // 2. RadioGroup chọn Giới tính[cite: 42]
         binding.rgGender.setOnCheckedChangeListener { _, checkedId ->
             val gender = when (checkedId) {
                 R.id.rbMale -> "Nam"
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Đã chọn giới tính: $gender", Toast.LENGTH_SHORT).show()
         }
 
-        // 3. Sự kiện CheckBox Mạng xã hội hiện Toast[cite: 42]
+        // 3. CheckBox Mạng xã hội[cite: 42]
         binding.cbFacebook.setOnCheckedChangeListener { _, isChecked ->
             val status = if (isChecked) "Đã chọn Facebook" else "Đã bỏ chọn Facebook"
             Toast.makeText(this, status, Toast.LENGTH_SHORT).show()
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, status, Toast.LENGTH_SHORT).show()
         }
 
-        // 4. Sự kiện nút Đăng ký chuyển màn hình[cite: 42]
+        // 4. Nút Đăng ký chuyển trang[cite: 42]
         binding.btnRegister.setOnClickListener {
             val name = binding.etName.text.toString().trim()
             val email = binding.etEmail.text.toString().trim()
